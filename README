@@ -1,0 +1,24 @@
+This is a jQuery plugin for running JSLint on script tags you specify.
+
+Use like so:
+jQuery('.autolint').autolint();
+
+to run any script tag with the autolint class JSLint and show the results at the bottom of the page.
+
+Full example (same as in example.html):
+
+<html>
+	<head>
+		<script src="jquery.js"></script>
+		<script src="jslint.js"></script>
+		<script src="autolint.jquery.js" class="autolint"></script>
+	</head>
+	<body>
+		<h1>This is an AutoLint example</h1>
+		<script>
+		jQuery(document).ready(function () {
+				jQuery('script.autolint').autolint();
+		});
+		</script>
+	</body>
+</html>
