@@ -1,4 +1,4 @@
-This is a jQuery plugin for running Douglas Crockford's JSLint (http://www.jslint.com/) on script tags you specify. JSLint is required and is included in this repo but the most recent version can be found on the JSLint site: http://www.jslint.com/fulljslint.js
+This is a jQuery plugin for running Douglas Crockford's JSLint ([http://www.jslint.com/](http://www.jslint.com/)) on script tags you specify. JSLint is required and is included in this repo but the most recent version can be found on the JSLint site: [http://www.jslint.com/fulljslint.js](http://www.jslint.com/fulljslint.js)
 
 Use like so:
 `jQuery('.autolint').autolint();`
