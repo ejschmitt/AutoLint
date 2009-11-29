@@ -1,27 +1,27 @@
 This is a jQuery plugin for running Douglas Crockford's JSLint (http://www.jslint.com/) on script tags you specify. JSLint is required and is included in this repo but the most recent version can be found on the JSLint site: http://www.jslint.com/fulljslint.js
 
 Use like so:
-jQuery('.autolint').autolint();
+`jQuery('.autolint').autolint();`
 
 to run any script tag with the autolint class JSLint and show the results at the bottom of the page.
 
 Full example (same as in example.html):
 
-<html>
-	<head>
-		<script src="jquery.js"></script>
-		<script src="jslint.js"></script>
-		<script src="autolint.jquery.js" class="autolint"></script>
-	</head>
-	<body>
-		<h1>This is an AutoLint example</h1>
-		<script>
-		jQuery(document).ready(function () {
-				jQuery('script.autolint').autolint();
-		});
-		</script>
-	</body>
-</html>
+    <html>
+    	<head>
+    		<script src="jquery.js"></script>
+    		<script src="jslint.js"></script>
+    		<script src="autolint.jquery.js" class="autolint"></script>
+    	</head>
+    	<body>
+    		<h1>This is an AutoLint example</h1>
+    		<script>
+    		jQuery(document).ready(function () {
+    				jQuery('script.autolint').autolint();
+    		});
+    		</script>
+    	</body>
+    </html>
 
 Example of output added to the bottom of the page:
 ![Screen shot](http://cloud.github.com/downloads/ejschmitt/AutoLint/autolint_scrn.png)
