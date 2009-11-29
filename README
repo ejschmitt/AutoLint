@@ -23,6 +23,9 @@ Full example (same as in example.html):
 	</body>
 </html>
 
+Example of output added to the bottom of the page:
+<img src="http://cloud.github.com/downloads/ejschmitt/AutoLint/autolint_scrn.png" />
+
 
 This software is licensed under the MIT License:
 
