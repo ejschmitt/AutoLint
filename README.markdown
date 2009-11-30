@@ -1,5 +1,7 @@
 This is a jQuery plugin for running Douglas Crockford's JSLint ([http://www.jslint.com/](http://www.jslint.com/)) on script tags you specify. JSLint is required and is included in this repo but the most recent version can be found on the JSLint site: [http://www.jslint.com/fulljslint.js](http://www.jslint.com/fulljslint.js)
 
+This runs in the browser, so it will be slower then using something on the machine like rhino. However this requires nothing else to be installed/maintained besides the browser.
+
 Use like so:
 `jQuery('.autolint').autolint();`
 
