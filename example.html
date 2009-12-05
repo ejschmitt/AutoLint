@@ -6,7 +6,9 @@
 	</head>
 	<body>
 		<h1>This is an AutoLint example</h1>
-		<script>
+		<script class='autolint'>
+		var failureWithoutSemiColon = true
+		
 		jQuery(document).ready(function () {
 				jQuery('script.autolint').autolint();
 		});
