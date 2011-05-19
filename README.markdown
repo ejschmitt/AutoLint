@@ -26,7 +26,7 @@ Full example (same as in example.html):
     </html>
 
 Example of output added to the bottom of the page:
-![Screen shot](http://cloud.github.com/downloads/ejschmitt/AutoLint/autolint_scrn.png)
+![Screen shot](http://dl.dropbox.com/u/1506097/Screenshots/autolint_scrn.png)
 
 
 This software is licensed under the MIT License:
