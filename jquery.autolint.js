@@ -1,19 +1,17 @@
-/*jslint onevar: false, undef: true, 
-nomen: true, eqeqeq: true, plusplus: true, bitwise: true, 
-regexp: false, strict: true, newcap: true, immed: true */
-/*globals jQuery, JSLINT */
-"use strict";
+/*jslint regexp: true, browser: true, vars: true, white: true, plusplus: true, maxerr: 50 */
+/*globals jQuery: true, JSLINT: true */
 jQuery.fn.autolint = function () {
-  var scriptTags = this, 
-  PLUGIN_NAME = 'AutoLint', 
-  elementSrc = [], 
+  "use strict";
+  var scriptTags = this,
+  PLUGIN_NAME = 'AutoLint',
+  elementSrc = [],
   lintResults = [],
   i, displayResults;
 
   var linter = function (data, status, elementSrc) {
     if (status === 'success') {
       var elementResults = {
-        'element': elementSrc, 
+        'element': elementSrc,
         'result': JSLINT(data),
         'errors': JSLINT.errors
       };
@@ -34,7 +32,7 @@ jQuery.fn.autolint = function () {
           ' - ' +
           err.reason + 
           '<br />' + 
-          '<pre>"' + (evidence ? evidence : '') + '"</pre>'
+          '<pre>"' + (evidence || '') + '"</pre>'
         );
       }
     }
@@ -124,25 +122,27 @@ jQuery.fn.autolint = function () {
     /*
     Actual routine for invoking JSLINT on the scripts
     */
-    for (i = 0; i < scriptTags.length; i += 1) {
-      (function () {
-        var scriptTag = scriptTags[i],
+    var runLint = function (i) {
+      var scriptTag = scriptTags[i],
         elementSrc = scriptTag.src,
         lastElementSrc = scriptTags[scriptTags.length - 1].src;
-        if (elementSrc) {
-          // for js files linked
-          jQuery.get(elementSrc, function(data, status) { linter(data, status, elementSrc); });
-        } else {
-          // for inline script tags
-          var script = jQuery(scriptTag).html();
-          var firstLineOfScript = script.match(/\w.+?\n/)[0];
-          var html = jQuery('html').html();
-          var scriptIndex = html.indexOf(firstLineOfScript);
-          var lineNumber = html.substring(0, scriptIndex).split("\n").length;
-          var identifier = 'Inline script at line ' + lineNumber + ' (' + script.match(/\w.{30}/) + '...)';
-          linter(script, 'success', identifier); // inline script tag
-        }
-        }());
+      if (elementSrc) {
+        // for js files linked
+        jQuery.get(elementSrc, function(data, status) { linter(data, status, elementSrc); });
+      } else {
+        // for inline script tags
+        var script = jQuery(scriptTag).html();
+        var firstLineOfScript = script.match(/\w.+?\n/)[0];
+        var html = jQuery('html').html();
+        var scriptIndex = html.indexOf(firstLineOfScript);
+        var lineNumber = html.substring(0, scriptIndex).split("\n").length;
+        var identifier = 'Inline script at line ' + lineNumber + ' (' + script.match(/\w.{30}/) + '...)';
+        linter(script, 'success', identifier); // inline script tag
+      }
+      };
+
+    for (i = 0; i < scriptTags.length; i += 1) {
+        runLint(i);
       }
 
     };

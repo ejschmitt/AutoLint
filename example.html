@@ -6,12 +6,15 @@
 	</head>
 	<body>
 		<h1>This is an AutoLint example</h1>
-		<script class='autolint'>
-		var failureWithoutSemiColon = true
-		
-		jQuery(document).ready(function () {
-				jQuery('script.autolint').autolint();
-		});
-		</script>
+    <script class='autolint'>
+/*jslint white: true */
+/*globals jQuery: true, document: true */
+      var failureWithoutSemiColon = true;
+
+      jQuery(document).ready(function () {
+        "use strict";
+        jQuery('script.autolint').autolint();
+      });
+    </script>
 	</body>
 </html>
